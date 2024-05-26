@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 @Setter
 public class TodoDto {
     private int id;
-    private int userId;
+    private int memberId;
     private String content;
     private LocalDateTime created_at;
 
@@ -19,7 +19,7 @@ public class TodoDto {
         dto.setId(todo.getId());
         dto.setCreated_at(todo.getCreated_at());
         dto.setContent(todo.getContent());
-        dto.setUserId(todo.getMember().getId());
+        dto.setMemberId(todo.getMember().getId());
         return dto;
     }
 }

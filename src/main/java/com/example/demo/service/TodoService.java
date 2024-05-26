@@ -30,7 +30,7 @@ public class TodoService {
 
     //create
     public void createTodo(TodoDto todoDto) {
-        Member member = memberRepository.findById(todoDto.getUserId()).orElse(null);
+        Member member = memberRepository.findById(todoDto.getMemberId()).orElse(null);
         if (member == null)
             return;
         Todo todo = new Todo();

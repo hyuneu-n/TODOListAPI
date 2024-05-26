@@ -15,7 +15,7 @@ public class MemberService {
 
 
     //read
-    public MemberDto getUserById(int id){
+    public MemberDto getMemberById(int id){
         Member member = memberRepository.findById(id).orElse(null);
         if(member == null)
             return null;
@@ -23,7 +23,7 @@ public class MemberService {
     }
 
     //create
-    public void createUser(MemberDto memberDto){
+    public void createMember(MemberDto memberDto){
         Member member = new Member();
         member.setMemberId(memberDto.getMemberId());
         member.setName(memberDto.getName());
@@ -33,7 +33,7 @@ public class MemberService {
     }
 
     //update
-    public void updateUser(int id, MemberDto memberDto){
+    public void updateMember(int id, MemberDto memberDto){
         Member member = memberRepository.findById(id).orElse(null);
         if(member != null){
             member.setMemberId(memberDto.getMemberId());
@@ -45,7 +45,7 @@ public class MemberService {
     }
 
     //delete
-    public void deleteUser(int id){
+    public void deleteMember(int id){
         memberRepository.deleteById(id);
     }
 
