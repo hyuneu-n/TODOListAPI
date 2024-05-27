@@ -7,6 +7,7 @@ import com.example.demo.repository.TodoRepository;
 import com.example.demo.repository.MemberRepository;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -21,7 +22,7 @@ public class TodoService {
     }
 
     //read
-    public List<TodoDto> getTodosByUserId(int memberId){
+    public List<TodoDto> getTodosByMemberId(int memberId){
         List<Todo> todos = todoRepository.findByMemberId(memberId);
         return todos.stream()
                 .map(TodoDto::from)
@@ -43,8 +44,9 @@ public class TodoService {
     public void updateTodo(int id, TodoDto todoDto){
         Todo todo = todoRepository.findById(id).orElse(null);
         if (todo != null){
-            todo.setContent(todoDto.getContent());
-            todo.setCreated_at(todoDto.getCreated_at());
+            if(todoDto.getContent()!=null)
+                todo.setContent(todoDto.getContent());
+            todo.setCreated_at(LocalDateTime.now());
             todoRepository.save(todo);
         }
     }

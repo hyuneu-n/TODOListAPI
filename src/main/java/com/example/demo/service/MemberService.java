@@ -36,10 +36,14 @@ public class MemberService {
     public void updateMember(int id, MemberDto memberDto){
         Member member = memberRepository.findById(id).orElse(null);
         if(member != null){
-            member.setMemberId(memberDto.getMemberId());
-            member.setName(memberDto.getName());
-            member.setPasswd(memberDto.getPasswd());
-            member.setEmail(member.getEmail());
+            if(memberDto.getMemberId()!=null)
+                member.setMemberId(memberDto.getMemberId());
+            if(memberDto.getName()!=null)
+                member.setName(memberDto.getName());
+            if(memberDto.getPasswd()!=null)
+                member.setPasswd(memberDto.getPasswd());
+            if(memberDto.getEmail()!=null)
+                member.setEmail(memberDto.getEmail());
             memberRepository.save(member);
         }
     }

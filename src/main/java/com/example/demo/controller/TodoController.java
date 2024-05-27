@@ -1,9 +1,7 @@
 package com.example.demo.controller;
 
-import com.example.demo.domain.Todo;
 import com.example.demo.dto.TodoDto;
 import com.example.demo.service.TodoService;
-import org.apache.coyote.Response;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -19,9 +17,9 @@ public class TodoController {
         this.todoService = todoService;
     }
 
-    @GetMapping("/{userId}")
-    public ResponseEntity<List<TodoDto>> getTodosByUserId(@PathVariable int userId){
-        List<TodoDto> todos = todoService.getTodosByUserId(userId);
+    @GetMapping("/{memberId}")
+    public ResponseEntity<List<TodoDto>> getTodosByMemberId(@PathVariable int memberId){
+        List<TodoDto> todos = todoService.getTodosByMemberId(memberId);
         return ResponseEntity.ok(todos);
     }
 
