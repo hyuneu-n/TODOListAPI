@@ -19,10 +19,8 @@ public class Todo {
     @ManyToOne
     @JoinColumn(name = "member_table_id", nullable = false)
     private Member member;
-
     private String content;
-
+    
     @CreationTimestamp
     private LocalDateTime created_at;
-
 }
