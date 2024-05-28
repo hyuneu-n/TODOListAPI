@@ -37,6 +37,7 @@ public class TodoService {
         Todo todo = new Todo();
         todo.setMember(member);
         todo.setContent(todoDto.getContent());
+        todo.setCompleted(todoDto.getCompleted());
         todoRepository.save(todo);
     }
 
@@ -46,6 +47,8 @@ public class TodoService {
         if (todo != null){
             if(todoDto.getContent()!=null)
                 todo.setContent(todoDto.getContent());
+            if(todoDto.getCompleted()!=null)
+                todo.setCompleted(todoDto.getCompleted());
             todo.setCreated_at(LocalDateTime.now());
             todoRepository.save(todo);
         }

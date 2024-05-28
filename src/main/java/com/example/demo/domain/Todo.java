@@ -20,7 +20,8 @@ public class Todo {
     @JoinColumn(name = "member_table_id", nullable = false)
     private Member member;
     private String content;
-    
+    private Boolean completed;
+
     @CreationTimestamp
     private LocalDateTime created_at;
 }

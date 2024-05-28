@@ -12,8 +12,12 @@ public class TodoDto {
     private int id;
     private int memberId;
     private String content;
-    private boolean completed;
+    private Boolean completed;
     private LocalDateTime created_at;
+
+    public TodoDto() {
+        this.completed = false;
+    }
 
     public static TodoDto from(Todo todo){
         TodoDto dto = new TodoDto();
@@ -21,7 +25,7 @@ public class TodoDto {
         dto.setCreated_at(todo.getCreated_at());
         dto.setContent(todo.getContent());
         dto.setMemberId(todo.getMember().getId());
-        dto.setCompleted(todo.isCompleted());
+        dto.setCompleted(todo.getCompleted());
         return dto;
     }
 }

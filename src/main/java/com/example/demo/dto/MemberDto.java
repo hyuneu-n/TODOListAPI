@@ -22,7 +22,7 @@ public class MemberDto {
         MemberDto dto = new MemberDto();
         dto.setId(member.getId());
         dto.setMemberId(member.getMemberId());
-        dto.setPasswd(member.getPasswd());
+        //dto.setPasswd(member.getPasswd()); passwd는 굳이 알려줄 필요 없음.
         dto.setName(member.getName());
         dto.setEmail(member.getEmail());
         dto.setTodoIds(member.getTodoList().stream().map(Todo::getId).collect(Collectors.toList()));
